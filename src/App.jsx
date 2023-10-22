@@ -1,9 +1,10 @@
-import './App.css'
 
-function App() {
+const App = () => {
 
   return (
-    <div>Tesla Clone</div>
+    <div className="text-3xl font-bold">
+      Tesla Clone
+    </div>
   )
 }
 
