@@ -3,10 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'gotham Book';
-    src: url(./assets//fonts/GothamSSm-Book_Web.woff2);
+  font-family: "gotham Book";
+  src: url(./assets//fonts/GothamSSm-Book_Web.woff2);
 }
 
 * {
-    font-family: 'Gotham Book',sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Gotham Book", sans-serif;
+}
+
+body {
+  width: 100%;
 }
