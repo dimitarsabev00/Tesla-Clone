@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TfiClose } from "react-icons/tfi";
 
 const Header = () => {
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const handleOpenMenu = () => {
+    setIsOpenMenu(!isOpenMenu);
+  };
     return (
         <div>
           <div className="flex justify-between items-center font-bold px-12 p-4 text-sm ">
@@ -45,7 +50,7 @@ const Header = () => {
                   <a href="#">Account</a>
                 </li>
                 <li
-                //   onClick={handleNav}
+                  onClick={handleOpenMenu}
                   className="py-1 px-3 hover:rounded hover:bg-black/5"
                 >
                   Menu
@@ -54,7 +59,7 @@ const Header = () => {
             </div>
             <div className="lg:hidden">
               <button 
-            //   onClick={handleNav} 
+              onClick={handleOpenMenu} 
               className="inline-flex items-center rounded-md py-2 px-4 p-2 text-sm font-medium bg-black/5 shadow-sm hover:bg-black/10">
                 Menu
               </button>
@@ -62,15 +67,14 @@ const Header = () => {
     
             <div
               className={
-                // nav
-                !true
+                isOpenMenu
                   ? "bg-white absolute right-0 top-0 w-80 h-full z-10"
                   : "fixed right-[-100%]"
               }
             >
               <div className="flex justify-end pr-8 pt-8">
                 <TfiClose 
-                // onClick={handleNav} 
+                onClick={handleOpenMenu} 
                 className="rounded p-1 hover:bg-black/5" size={28} />
               </div>
               <ul className="pt-8 px-6">
