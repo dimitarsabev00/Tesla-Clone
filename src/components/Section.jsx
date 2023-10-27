@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { FiChevronDown } from "react-icons/fi";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const Section = ({
   title,
