@@ -43,7 +43,11 @@ const Header = () => {
             <a href="#">Shop</a>
           </li>
           <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-            <a href="#">Account</a>
+            <a href="#"></a>
+            <Link to="/login">Login</Link>
+          </li>
+          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+            <Link to="/account">Account</Link>
           </li>
           <li
             onClick={handleOpenMenu}
