@@ -7,10 +7,13 @@ import Model_X from "../assets/images/model-x.jpg";
 import Solar_Panel from "../assets/images/solar-panel.jpg";
 import Solar_Roof from "../assets/images/solar-roof.jpg";
 import Accessories from "../assets/images/accessories.jpg";
+import Header from "../components/Header";
 
 const Home = () => {
   return (
-    <div
+    <>
+      <Header />
+      <div
       style={{
         height: "100vh",
       }}
@@ -63,6 +66,8 @@ const Home = () => {
         leftBtnText="Shop now"
       />
     </div>
+    </>
+    
   );
 };
 

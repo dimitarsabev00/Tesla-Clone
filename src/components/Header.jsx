@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TfiClose } from "react-icons/tfi";
 import Tesla_Logo from "../assets/images/logo.svg";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
@@ -12,9 +12,9 @@ const Header = () => {
     <div>
       <div className="flex justify-between items-center font-bold px-12 p-4 text-sm ">
         <div>
-          <a href="#">
+          <Link to="/">
             <img className="h-3" src={Tesla_Logo} alt="Tesla logo" />
-          </a>
+          </Link>
         </div>
         <div className="hidden lg:inline">
           <ul className="flex justify-center hover:cursor-pointer">

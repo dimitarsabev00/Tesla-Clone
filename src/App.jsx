@@ -1,12 +1,10 @@
-import Header from "./components/Header";
 import Home from "./screens/Home";
-
+import { BrowserRouter as Router } from "react-router-dom";
 const App = () => {
   return (
-    <div>
-      <Header />
+    <Router>
       <Home />
-    </div>
+    </Router>
   );
 };
 
