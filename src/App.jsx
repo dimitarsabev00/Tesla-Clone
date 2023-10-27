@@ -1,9 +1,9 @@
-import Home from "./screens/Home";
 import { BrowserRouter as Router } from "react-router-dom";
+import RoutesComp from "./components/Routes";
 const App = () => {
   return (
     <Router>
-      <Home />
+      <RoutesComp />
     </Router>
   );
 };
