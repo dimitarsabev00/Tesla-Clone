@@ -44,7 +44,7 @@ const Header = () => {
           </li>
           <li className="py-1 px-3 hover:rounded hover:bg-black/5">
             <a href="#"></a>
-            <Link to="/login">Login</Link>
+            <Link to="/auth/sign-in">Sign In</Link>
           </li>
           <li className="py-1 px-3 hover:rounded hover:bg-black/5">
             <Link to="/account">Account</Link>
