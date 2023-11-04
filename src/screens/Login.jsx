@@ -92,12 +92,8 @@ const Login = () => {
           <hr className="w-[40%] h-0 opacity-30" />
         </div>
         <Link to="/auth/sign-up">
-          <button
-            className="border-[3px] border-black w-full py-[10px] px-[40px] rounded-full uppercase text-black font-semibold cursor-pointer transition duration-200 ease-in-out outline-none hover:bg-black hover:text-white"
-            type="submit"
-            onClick={() => {}}
-          >
-            Sign Up
+          <button className="border-[3px] border-black w-full py-[10px] px-[40px] rounded-full uppercase text-black font-semibold cursor-pointer transition duration-200 ease-in-out outline-none hover:bg-black hover:text-white">
+            Create account
           </button>
         </Link>
       </div>
