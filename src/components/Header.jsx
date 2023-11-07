@@ -26,6 +26,13 @@ const Header = () => {
       })
       .catch((error) => alert(error.message));
   };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="flex justify-between items-center font-bold px-12 p-4 text-sm sticky z-10 top-0 left-0 right-0 bottom-0">
       <div>
@@ -35,23 +42,47 @@ const Header = () => {
       </div>
       <div className="hidden lg:inline">
         <ul className="flex justify-center hover:cursor-pointer">
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("model-s")}
+          >
             <a href="#">Model S</a>
           </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("model-3")}
+          >
             <a href="#">Model 3</a>
           </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("model-x")}
+          >
             <a href="#">Model X</a>
           </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("model-y")}
+          >
             <a href="#">Model Y</a>
           </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("solar-panels")}
+          >
+            <a href="#">Solar Panels</a>
+          </li>
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("solar-roof")}
+          >
             <a href="#">Solar Roof</a>
           </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-            <a href="#">Solar Panels</a>
+          <li
+            className="py-1 px-3 hover:rounded hover:bg-black/5"
+            onClick={() => scrollToSection("accessories")}
+          >
+            <a href="#">Accessories</a>
           </li>
         </ul>
       </div>
@@ -79,7 +110,6 @@ const Header = () => {
               <Link to="/auth/sign-in">Sign In</Link>
             </li>
           )}
-          
 
           <li
             onClick={handleOpenMenu}

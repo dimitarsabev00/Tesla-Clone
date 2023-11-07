@@ -10,9 +10,11 @@ const Section = ({
   leftBtnText,
   rightBtnText,
   backgroundImg,
+  idSection,
 }) => {
   return (
     <div
+      id={idSection}
       style={{
         width: "100vw",
         height: "100vh",

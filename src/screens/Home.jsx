@@ -14,60 +14,66 @@ const Home = () => {
     <>
       <Header />
       <div
-      style={{
-        height: "100vh",
-      }}
-    >
-      <Section
-        title="Model S"
-        description="Order Online for Touchless Delivery"
-        backgroundImg={Model_S}
-        leftBtnText="Custom Order"
-        rightBtnText="Existing Inventory"
-      />
-      <Section
-        title="Model Y"
-        description="Order Online for Touchless Delivery"
-        backgroundImg={Model_Y}
-        leftBtnText="Custom Order"
-        rightBtnText="Existing Inventory"
-      />
-      <Section
-        title="Model 3"
-        description="Order Online for Touchless Delivery"
-        backgroundImg={Model_3}
-        leftBtnText="Custom Order"
-        rightBtnText="Existing Inventory"
-      />
-      <Section
-        title="Model X"
-        description="Order Online for Touchless Delivery"
-        backgroundImg={Model_X}
-        leftBtnText="Custom Order"
-        rightBtnText="Existing Inventory"
-      />
-      <Section
-        title="Lowest Cost Solar Panels In America"
-        description="Money-back guarantee"
-        backgroundImg={Solar_Panel}
-        leftBtnText="Order now"
-        rightBtnText="Learn more"
-      />
-      <Section
-        title="Solar For New Roofs"
-        description="Solar Roof Costs Less Than A New Roof Plus Solar Panels"
-        backgroundImg={Solar_Roof}
-        leftBtnText="Order now"
-        rightBtnText="Learn more"
-      />
-      <Section
-        title="Accessories"
-        backgroundImg={Accessories}
-        leftBtnText="Shop now"
-      />
-    </div>
+        style={{
+          height: "100vh",
+        }}
+      >
+        <Section
+          title="Model S"
+          description="Order Online for Touchless Delivery"
+          backgroundImg={Model_S}
+          leftBtnText="Custom Order"
+          rightBtnText="Existing Inventory"
+          idSection="model-s"
+        />
+        <Section
+          title="Model 3"
+          description="Order Online for Touchless Delivery"
+          backgroundImg={Model_3}
+          leftBtnText="Custom Order"
+          rightBtnText="Existing Inventory"
+          idSection="model-3"
+        />
+        <Section
+          title="Model Y"
+          description="Order Online for Touchless Delivery"
+          backgroundImg={Model_Y}
+          leftBtnText="Custom Order"
+          rightBtnText="Existing Inventory"
+          idSection="model-y"
+        />
+        <Section
+          title="Model X"
+          description="Order Online for Touchless Delivery"
+          backgroundImg={Model_X}
+          leftBtnText="Custom Order"
+          rightBtnText="Existing Inventory"
+          idSection="model-x"
+        />
+        <Section
+          title="Lowest Cost Solar Panels In America"
+          description="Money-back guarantee"
+          backgroundImg={Solar_Panel}
+          leftBtnText="Order now"
+          rightBtnText="Learn more"
+          idSection="solar-panels"
+        />
+        <Section
+          title="Solar For New Roofs"
+          description="Solar Roof Costs Less Than A New Roof Plus Solar Panels"
+          backgroundImg={Solar_Roof}
+          leftBtnText="Order now"
+          rightBtnText="Learn more"
+          idSection="solar-roof"
+        />
+        <Section
+          title="Accessories"
+          backgroundImg={Accessories}
+          leftBtnText="Shop now"
+          idSection="accessories"
+        />
+      </div>
     </>
-    
   );
 };
 
