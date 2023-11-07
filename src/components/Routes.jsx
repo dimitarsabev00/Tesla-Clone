@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
 import Register from "../screens/Register";
+import Account from "../screens/Account";
 
 const RoutesComp = () => {
   const currentUser = useSelector(({ generalSlice }) => generalSlice.user);
@@ -18,6 +19,10 @@ const RoutesComp = () => {
       <Route
         path="/auth/sign-up"
         element={currentUser ? <Navigate to="/account" /> : <Register />}
+      />
+      <Route
+        path="/account"
+        element={!currentUser ? <Navigate to="/auth/sign-in" /> : <Account />}
       />
     </Routes>
   );
