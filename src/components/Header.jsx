@@ -1,12 +1,30 @@
 import React, { useState } from "react";
 import { TfiClose } from "react-icons/tfi";
 import Tesla_Logo from "../assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../configs/firebase";
+import { logout } from "../store/slices/generalSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 const Header = () => {
+  const currentUser = useSelector(({ generalSlice }) => generalSlice.user);
+
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const handleOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu);
+  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutOfApp = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch(logout());
+        navigate("/");
+      })
+      .catch((error) => alert(error.message));
   };
   return (
     <div className="flex justify-between items-center font-bold px-12 p-4 text-sm sticky z-10 top-0 left-0 right-0 bottom-0">
@@ -42,13 +60,27 @@ const Header = () => {
           <li className="py-1 px-3 hover:rounded hover:bg-black/5">
             <a href="#">Shop</a>
           </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-            <a href="#"></a>
-            <Link to="/auth/sign-in">Sign In</Link>
-          </li>
-          <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-            <Link to="/account">Account</Link>
-          </li>
+          {currentUser && (
+            <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+              <Link to="/account">Account</Link>
+            </li>
+          )}
+          {currentUser ? (
+            <li
+              className="py-1 px-3 hover:rounded hover:bg-black/5"
+              onClick={logoutOfApp}
+            >
+              <a href="#"></a>
+              <Link>Sign Out</Link>
+            </li>
+          ) : (
+            <li className="py-1 px-3 hover:rounded hover:bg-black/5">
+              <a href="#"></a>
+              <Link to="/auth/sign-in">Sign In</Link>
+            </li>
+          )}
+          
+
           <li
             onClick={handleOpenMenu}
             className="py-1 px-3 hover:rounded hover:bg-black/5"
