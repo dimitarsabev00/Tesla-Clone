@@ -5,6 +5,7 @@ import Login from "../screens/Login";
 import Home from "../screens/Home";
 import Register from "../screens/Register";
 import Account from "../screens/Account";
+import Shop from "../screens/Shop";
 
 const RoutesComp = () => {
   const currentUser = useSelector(({ generalSlice }) => generalSlice.user);
@@ -23,6 +24,10 @@ const RoutesComp = () => {
       <Route
         path="/account"
         element={!currentUser ? <Navigate to="/auth/sign-in" /> : <Account />}
+      />
+      <Route
+        path="/shop"
+        element={!currentUser ? <Navigate to="/auth/sign-in" /> : <Shop />}
       />
     </Routes>
   );

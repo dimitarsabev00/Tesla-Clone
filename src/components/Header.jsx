@@ -89,7 +89,7 @@ const Header = () => {
       <div className="hidden lg:inline">
         <ul className="flex justify-center hover:cursor-pointer">
           <li className="py-1 px-3 hover:rounded hover:bg-black/5">
-            <a href="#">Shop</a>
+            <Link to="/shop">Shop</Link>
           </li>
           {currentUser && (
             <li className="py-1 px-3 hover:rounded hover:bg-black/5">
