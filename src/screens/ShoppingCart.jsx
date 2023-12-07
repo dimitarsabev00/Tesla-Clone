@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { buyAllProducts, removeProduct } from "../store/slices/generalSlice";
+import { toast } from "react-hot-toast";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,7 @@ const ShoppingCart = () => {
   );
 
   const handleBuyEverything = () => {
-    alert("All items have been purchased and are on the way!");
-
+    toast.success("All items have been purchased and are on the way!");
     dispatch(buyAllProducts());
   };
   const removeFromCart = (id) => {
