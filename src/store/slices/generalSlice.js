@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
+  shoppingCart: [],
 };
 
 export const generalSlice = createSlice({
@@ -14,9 +15,12 @@ export const generalSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
+    addProduct: (state, action) => {
+      state.shoppingCart.push(action.payload);
+    },
   },
 });
 
-export const { login, logout } = generalSlice.actions;
+export const { login, logout, addProduct } = generalSlice.actions;
 
 export default generalSlice.reducer;
