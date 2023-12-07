@@ -7,6 +7,7 @@ import { auth } from "../configs/firebase";
 import { logout } from "../store/slices/generalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { IoCartOutline } from "react-icons/io5";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
   const currentUser = useSelector(({ generalSlice }) => generalSlice.user);
@@ -25,7 +26,7 @@ const Header = () => {
         dispatch(logout());
         navigate("/");
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => toast.error(error.message));
   };
 
   const scrollToSection = (sectionId) => {
