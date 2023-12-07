@@ -22,10 +22,13 @@ export const generalSlice = createSlice({
       const { id } = action.payload;
       state.shoppingCart = state.shoppingCart.filter((item) => item.id !== id);
     },
+    buyAllProducts: (state) => {
+      state.shoppingCart = [];
+    },
   },
 });
 
-export const { login, logout, addProduct, removeProduct } =
+export const { login, logout, addProduct, removeProduct,buyAllProducts } =
   generalSlice.actions;
 
 export default generalSlice.reducer;

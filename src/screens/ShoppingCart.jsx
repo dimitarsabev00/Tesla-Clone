@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import { useDispatch, useSelector } from "react-redux";
-import { removeProduct } from "../store/slices/generalSlice";
+import { buyAllProducts, removeProduct } from "../store/slices/generalSlice";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -9,6 +9,11 @@ const ShoppingCart = () => {
     ({ generalSlice }) => generalSlice.shoppingCart
   );
 
+  const handleBuyEverything = () => {
+    alert("All items have been purchased and are on the way!");
+
+    dispatch(buyAllProducts());
+  };
   const removeFromCart = (id) => {
     dispatch(removeProduct({ id }));
   };
@@ -31,7 +36,7 @@ const ShoppingCart = () => {
       </ul>
       <button
         className="border border-solid border-black bg-transparent px-[8px] py-[16px] cursor-pointer text-black mt-[10px] transition-colors duration-300 hover:bg-black hover:text-white rounded-md"
-        onClick={() => {}}
+        onClick={handleBuyEverything}
       >
         Buy Everything
       </button>
