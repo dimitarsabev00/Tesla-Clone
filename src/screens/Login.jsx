@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../store/slices/generalSlice";
 import Tesla_Logo from "../assets/images/logo.svg";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-hot-toast";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,9 +26,10 @@ const Login = () => {
             displayName: userAuth.user.displayName,
           })
         );
+        toast.success("Successful login to your account!");
         navigate("/account");
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => toast.error(error.message));
   };
   return (
     <div className=" p-[25px] pt-[15px] h-screen flex flex-col gap-[70px]">
