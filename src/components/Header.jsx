@@ -6,6 +6,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../configs/firebase";
 import { logout } from "../store/slices/generalSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { IoCartOutline } from "react-icons/io5";
 
 const Header = () => {
   const currentUser = useSelector(({ generalSlice }) => generalSlice.user);
@@ -88,9 +89,17 @@ const Header = () => {
       </div>
       <div className="hidden lg:inline">
         <ul className="flex justify-center hover:cursor-pointer">
+          <li className="py-1.5 px-3 hover:rounded hover:bg-black/5">
+            <IoCartOutline
+              onClick={() => {
+                navigate("/shoppingCart");
+              }}
+            />
+          </li>
           <li className="py-1 px-3 hover:rounded hover:bg-black/5">
             <Link to="/shop">Shop</Link>
           </li>
+
           {currentUser && (
             <li className="py-1 px-3 hover:rounded hover:bg-black/5">
               <Link to="/account">Account</Link>
