@@ -18,9 +18,14 @@ export const generalSlice = createSlice({
     addProduct: (state, action) => {
       state.shoppingCart.push(action.payload);
     },
+    removeProduct: (state, action) => {
+      const { id } = action.payload;
+      state.shoppingCart = state.shoppingCart.filter((item) => item.id !== id);
+    },
   },
 });
 
-export const { login, logout, addProduct } = generalSlice.actions;
+export const { login, logout, addProduct, removeProduct } =
+  generalSlice.actions;
 
 export default generalSlice.reducer;

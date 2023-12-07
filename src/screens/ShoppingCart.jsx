@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeProduct } from "../store/slices/generalSlice";
 
 const ShoppingCart = () => {
+  const dispatch = useDispatch();
   const shoppingCart = useSelector(
     ({ generalSlice }) => generalSlice.shoppingCart
   );
+
+  const removeFromCart = (id) => {
+    dispatch(removeProduct({ id }));
+  };
 
   const CartList = (
     <>
@@ -16,7 +22,9 @@ const ShoppingCart = () => {
             <div>
               <div>{item.title}</div>
               <div>{item.price}</div>
-              <button onClick={() => {}}>Remove From Cart</button>
+              <button onClick={() => removeFromCart(item.id)}>
+                Remove From Cart
+              </button>
             </div>
           </li>
         ))}
