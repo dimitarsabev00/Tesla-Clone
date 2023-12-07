@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../store/slices/generalSlice";
 import Tesla_Logo from "../assets/images/logo.svg";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { toast } from "react-hot-toast";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,16 +22,16 @@ const Register = () => {
 
     //Validation
     if (!fName) {
-      return alert("Please enter a first name!");
+      return toast.error("Please enter a first name!");
     }
     if (!lName) {
-      return alert("Please enter a last name!");
+      return toast.error("Please enter a last name!");
     }
     if (!email) {
-      return alert("Please enter a email!");
+      return toast.error("Please enter a email!");
     }
     if (!password) {
-      return alert("Please enter a password!");
+      return toast.error("Please enter a password!");
     }
 
     // Sign up functionality
@@ -52,8 +53,9 @@ const Register = () => {
           })
         );
         navigate("/account");
+        toast.success("Successfully create new account!");
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => toast.error(error.message));
   };
   return (
     <div className=" p-[25px] pt-[15px] h-screen flex flex-col gap-[70px]">
