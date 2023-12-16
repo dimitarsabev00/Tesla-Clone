@@ -41,7 +41,7 @@ const Shop = () => {
     <>
       <Header />
 
-      <h1 className="text-center uppercase mt-[48px] font-bold">Products</h1>
+      <h1 className="text-center uppercase mt-[100px] font-bold">Products</h1>
       <div className="flex flex-row gap-5 flex-wrap justify-center mt-5">
         {products.map((product) => (
           <Product
