@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Route, Routes, Navigate } from "react-router";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
@@ -11,28 +11,62 @@ import ShoppingCart from "../screens/ShoppingCart";
 const RoutesComp = () => {
   const currentUser = useSelector(({ generalSlice }) => generalSlice.user);
 
+  const PrivateRoute = ({ children }) => {
+    let location = useLocation();
+    if (!currentUser)
+      return <Navigate to="/auth/sign-in" state={{ from: location }} replace />;
+    return children;
+  };
+
+  const AuthRoute = ({ children }) => {
+    let location = useLocation();
+    if (currentUser)
+      return <Navigate to="/" state={{ from: location }} replace />;
+    return children;
+  };
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
         path="/auth/sign-in"
-        element={currentUser ? <Navigate to="/account" /> : <Login />}
+        element={
+          <AuthRoute>
+            <Login />
+          </AuthRoute>
+        }
       />
       <Route
         path="/auth/sign-up"
-        element={currentUser ? <Navigate to="/account" /> : <Register />}
+        element={
+          <AuthRoute>
+            <Register />
+          </AuthRoute>
+        }
       />
       <Route
         path="/account"
-        element={!currentUser ? <Navigate to="/auth/sign-in" /> : <Account />}
+        element={
+          <PrivateRoute>
+            <Account />
+          </PrivateRoute>
+        }
       />
       <Route
         path="/shop"
-        element={!currentUser ? <Navigate to="/auth/sign-in" /> : <Shop />}
+        element={
+          <PrivateRoute>
+            <Shop />
+          </PrivateRoute>
+        }
       />
       <Route
         path="/shoppingCart"
-        element={!currentUser ? <Navigate to="/auth/sign-in" /> : <ShoppingCart />}
+        element={
+          <PrivateRoute>
+            <ShoppingCart />
+          </PrivateRoute>
+        }
       />
     </Routes>
   );
