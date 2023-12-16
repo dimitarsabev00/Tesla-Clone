@@ -49,7 +49,7 @@ const ShoppingCart = () => {
   return (
     <div className=" ">
       <Header />
-      <div className="h-screen grid place-items-center">
+      <div className="h-screen grid place-items-center mt-[100px]">
         {shoppingCart?.length > 0 ? (
           CartList
         ) : (
