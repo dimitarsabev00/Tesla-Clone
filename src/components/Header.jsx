@@ -36,7 +36,10 @@ const Header = () => {
     }
   };
   return (
-    <div className="flex justify-between items-center font-bold px-12 p-4 text-sm sticky z-10 top-0 left-0 right-0 bottom-0">
+    <div
+      className="flex justify-between items-center font-bold px-12 p-4 text-sm fixed z-10 top-0 w-full bg-white rounded-b-lg 
+     shadow-xl"
+    >
       <div>
         <Link to="/">
           <img className="h-3" src={Tesla_Logo} alt="Tesla logo" />
